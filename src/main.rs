@@ -45,3 +45,15 @@ fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
 
     found_lines
 }
+
+#[cfg(test)]
+mod tests {
+    use super::search;
+    #[test]
+    fn test_empty_search() {
+        let empty_search_result = search("paolo", "Questo è un testo completamente inutile");
+
+        // Expect found lines to be 0
+        assert_eq!(empty_search_result.len(), 0);
+    }
+}
